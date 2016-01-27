@@ -18,7 +18,6 @@ module RocketPants
       ActionController::UrlFor,
       ActionController::Redirecting,
       ActionController::ConditionalGet,
-      ActionController::RackDelegation,
       record_identifier_klass,
       ActionController::HttpAuthentication::Basic::ControllerMethods,
       ActionController::HttpAuthentication::Digest::ControllerMethods,
@@ -41,6 +40,7 @@ module RocketPants
     ]
 
     MODULES << ActionController::HideActions if ActionPack::VERSION::MAJOR < 5
+    MODULES << ActionController::RackDelegation if ActionPack::VERSION::MAJOR < 5
 
     MODULES.compact!
 
